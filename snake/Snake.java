@@ -8,6 +8,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.view.MotionEvent;
+import java.util.Random;
 
 import java.util.ArrayList;
 
@@ -126,6 +127,11 @@ class Snake {
         segmentLocations.add(new Point(w / 2, h / 2));
     }
 
+    void reset2(){
+        Random random = new Random();
+        segmentLocations.get(0).x = random.nextInt(mMoveRange.x) + 1;
+        segmentLocations.get(0).y = random.nextInt(mMoveRange.y -1 ) + 1;
+    }
 
     void move() {
         // Move the body
